@@ -1,6 +1,6 @@
-package com.tw.josaber.dao;
+package com.tw.josaber.repository;
 
-import com.tw.josaber.model.TodoItem;
+import com.tw.josaber.entity.TodoItem;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
