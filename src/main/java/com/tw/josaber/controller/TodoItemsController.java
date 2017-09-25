@@ -31,7 +31,7 @@ public class TodoItemsController {
     public ResponseEntity<?> createTodoItems(@RequestBody TodoItem newTodoItem) {
         newTodoItem.setTimestamp(DateTimeUtil.getCurrentTime());
         ResponseMessage message = todoItemService.createTodoItem(newTodoItem);
-        return ResponseEntity.status(message.getCode()).body(message);
+        return ResponseEntity.status(message.getStatus()).body(message);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
@@ -39,12 +39,12 @@ public class TodoItemsController {
         updateTodoItem.setId(id);
         updateTodoItem.setTimestamp(DateTimeUtil.getCurrentTime());
         ResponseMessage message = todoItemService.updateTodoItem(updateTodoItem);
-        return ResponseEntity.status(message.getCode()).body(message);
+        return ResponseEntity.status(message.getStatus()).body(message);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteTodoItems(@PathVariable int id) {
         ResponseMessage message = todoItemService.deleteTodoItemById(id);
-        return ResponseEntity.status(message.getCode()).body(message);
+        return ResponseEntity.status(message.getStatus()).body(message);
     }
 }
