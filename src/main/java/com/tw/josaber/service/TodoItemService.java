@@ -1,8 +1,8 @@
 package com.tw.josaber.service;
 
-import com.tw.josaber.dao.TodoItemRepository;
+import com.tw.josaber.repository.TodoItemRepository;
 import com.tw.josaber.model.ResponseMessage;
-import com.tw.josaber.model.TodoItem;
+import com.tw.josaber.entity.TodoItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,7 @@ import static com.tw.josaber.utils.SynaxSugar.*;
 @Service
 public class TodoItemService {
 
-    TodoItemRepository todoItemRepository;
+    private TodoItemRepository todoItemRepository;
 
     @Autowired
     public TodoItemService(TodoItemRepository todoItemRepository) {
