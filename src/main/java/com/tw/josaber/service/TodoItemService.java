@@ -1,5 +1,6 @@
 package com.tw.josaber.service;
 
+import com.tw.josaber.model.ResponseMessage;
 import com.tw.josaber.model.TodoItem;
 import org.springframework.stereotype.Service;
 
@@ -15,5 +16,17 @@ public class TodoItemService {
         // TODO
         todoItemMap.put("items", new ArrayList<TodoItem>());
         return todoItemMap;
+    }
+
+    public ResponseMessage createTodoItem(TodoItem newTodoItem) {
+        return null;
+    }
+
+    public ResponseMessage updateTodoItem(TodoItem updateTodoItem) {
+        return null;
+    }
+
+    public ResponseMessage deleteTodoItemById(int id) {
+        return null;
     }
 }
