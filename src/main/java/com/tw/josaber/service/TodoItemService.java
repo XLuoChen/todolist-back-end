@@ -23,7 +23,7 @@ public class TodoItemService {
         this.todoItemRepository = todoItemRepository;
     }
 
-    public Map getTodoItemsMap() {
+    public Map<String, List<TodoItem>> getTodoItemsMap() {
         Map<String, List<TodoItem>> todoItemMap = new HashMap<String, List<TodoItem>>();
         List<TodoItem> todoItems = new ArrayList<TodoItem>();
         for (TodoItem todoItem: todoItemRepository.findAll()) {
