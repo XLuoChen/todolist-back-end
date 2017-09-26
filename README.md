@@ -23,3 +23,43 @@ $ git clone https://github.com/Josaber/todo-list-api.git
 $ cd todo-list-api
 $ mvn spring-boot:run
 ```
+
+### 结果
+
+GET
+
+```
+$ curl -X GET "http://localhost:8080/todoitems" -H "accept: application/json"
+...
+{"items":[{"id":1,"text":"finish todo list","done":false,"timestamp":"2011-01-21T11:33:21Z"},{"id":2,"text":"finish the homework","done":true,"timestamp":"2011-01-21T11:33:21Z"},{"id":3,"text":"This is for test create.","done":true,"timestamp":"2017-01-20T16:23:05Z"}]}%
+```
+
+POST
+
+```
+$ curl -X POST "http://localhost:8080/todoitems" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"text\": \"string\"}"
+...
+{"status":201,"message":"Create Todo Item Successfully!","todoItem":{"id":4,"text":"string","done":false,"timestamp":"2017-09-25T21:46:25Z"}}%
+```
+
+PUT
+
+```
+$ curl -X PUT "http://localhost:8080/todoitems/1" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"text\": \"string\", \"done\": true}"
+...
+{"status":200,"message":"Update Todo Item Successfully!","todoItem":{"id":1,"text":"string","done":true,"timestamp":"2017-09-25T21:52:34Z"}}%
+
+$ curl -X PUT "http://localhost:8080/todoitems/5" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"text\": \"string\", \"done\": true}"
+...
+{"status":404,"message":"The Todo Item Is Not Found!","todoItem":null}%
+```
+
+DELETE
+
+```
+$ curl -X DELETE "http://localhost:8080/todoitems/1" -H "accept: application/json"
+
+$ curl -X DELETE "http://localhost:8080/todoitems/100" -H "accept: application/json"
+...
+{"status":404,"message":"Fail to Delete Todo Item!","todoItem":null}%
+```
