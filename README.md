@@ -1,6 +1,6 @@
 ## todo-list-api
 
-### todo-api 需求
+### 需求
 
 实现 `todo-api.yml` 文件中所定义的 `api`。
 文件符合 `swagger` 规范，以支持对于 `todo-item` 的增删改查工作。
