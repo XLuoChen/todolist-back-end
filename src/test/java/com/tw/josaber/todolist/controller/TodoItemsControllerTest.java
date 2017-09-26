@@ -1,10 +1,10 @@
-package com.tw.josaber.controller;
+package com.tw.josaber.todolist.controller;
 
-import com.tw.josaber.Application;
-import com.tw.josaber.entity.TodoItem;
-import com.tw.josaber.model.ResponseMessage;
-import com.tw.josaber.service.TodoItemService;
-import com.tw.josaber.utils.SynaxSugar;
+import com.tw.josaber.todolist.entity.TodoItem;
+import com.tw.josaber.todolist.Application;
+import com.tw.josaber.todolist.model.ResponseMessage;
+import com.tw.josaber.todolist.service.TodoItemService;
+import com.tw.josaber.todolist.utils.SynaxSugar;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

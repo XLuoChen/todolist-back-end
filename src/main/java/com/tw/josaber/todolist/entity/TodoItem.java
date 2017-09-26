@@ -1,4 +1,4 @@
-package com.tw.josaber.entity;
+package com.tw.josaber.todolist.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;

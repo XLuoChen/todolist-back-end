@@ -1,6 +1,6 @@
-package com.tw.josaber.repository;
+package com.tw.josaber.todolist.repository;
 
-import com.tw.josaber.entity.TodoItem;
+import com.tw.josaber.todolist.entity.TodoItem;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

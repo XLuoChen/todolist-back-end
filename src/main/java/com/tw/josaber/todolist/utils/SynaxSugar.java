@@ -1,4 +1,4 @@
-package com.tw.josaber.utils;
+package com.tw.josaber.todolist.utils;
 
 public class SynaxSugar {
 

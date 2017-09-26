@@ -1,6 +1,6 @@
-package com.tw.josaber.model;
+package com.tw.josaber.todolist.model;
 
-import com.tw.josaber.entity.TodoItem;
+import com.tw.josaber.todolist.entity.TodoItem;
 
 public class ResponseMessage {
     private int status;

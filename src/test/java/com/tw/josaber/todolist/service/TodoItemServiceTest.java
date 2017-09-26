@@ -1,10 +1,11 @@
-package com.tw.josaber.service;
+package com.tw.josaber.todolist.service;
 
-import com.tw.josaber.entity.TodoItem;
-import com.tw.josaber.model.ResponseMessage;
-import com.tw.josaber.repository.TodoItemRepository;
-import com.tw.josaber.utils.DateTimeUtil;
-import com.tw.josaber.utils.SynaxSugar;
+import com.tw.josaber.todolist.entity.TodoItem;
+import com.tw.josaber.todolist.model.ResponseMessage;
+import com.tw.josaber.todolist.repository.TodoItemRepository;
+import com.tw.josaber.todolist.utils.DateTimeUtil;
+import com.tw.josaber.todolist.utils.SynaxSugar;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -40,7 +41,7 @@ public class TodoItemServiceTest {
         List<TodoItem> todoItems = Arrays.asList(todoItem);
 
         when(todoItemRepository.findAll()).thenReturn(todoItems);
-        assertEquals(todoItem, todoItemService.getTodoItemsMap().get("items").get(0));
+        Assert.assertEquals(todoItem, todoItemService.getTodoItemsMap().get("items").get(0));
     }
 
     @Test

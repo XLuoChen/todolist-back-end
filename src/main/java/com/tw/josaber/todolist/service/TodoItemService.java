@@ -1,8 +1,9 @@
-package com.tw.josaber.service;
+package com.tw.josaber.todolist.service;
 
-import com.tw.josaber.repository.TodoItemRepository;
-import com.tw.josaber.model.ResponseMessage;
-import com.tw.josaber.entity.TodoItem;
+import com.tw.josaber.todolist.entity.TodoItem;
+import com.tw.josaber.todolist.repository.TodoItemRepository;
+import com.tw.josaber.todolist.model.ResponseMessage;
+import com.tw.josaber.todolist.utils.SynaxSugar;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,8 +11,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static com.tw.josaber.utils.SynaxSugar.*;
 
 @Service
 public class TodoItemService {
@@ -39,7 +38,7 @@ public class TodoItemService {
         todoItem.setDone(false);
         todoItem.setTimestamp(newTodoItem.getTimestamp());
         TodoItem resultTodoItem = todoItemRepository.save(todoItem);
-        return new ResponseMessage(CREATE_SUCC_CODE, CREATE_SUCC_MESSAGE, resultTodoItem);
+        return new ResponseMessage(SynaxSugar.CREATE_SUCC_CODE, SynaxSugar.CREATE_SUCC_MESSAGE, resultTodoItem);
     }
 
     public ResponseMessage updateTodoItem(TodoItem updateTodoItem) {
@@ -49,18 +48,18 @@ public class TodoItemService {
             todoItem.setTimestamp(updateTodoItem.getTimestamp());
             todoItem.setText(updateTodoItem.getText());
             TodoItem resultTodoItem = todoItemRepository.save(todoItem);
-            return new ResponseMessage(UPDATE_SUCC_CODE, UPDATE_SUCC_MESSAGE, resultTodoItem);
+            return new ResponseMessage(SynaxSugar.UPDATE_SUCC_CODE, SynaxSugar.UPDATE_SUCC_MESSAGE, resultTodoItem);
         } else {
-            return new ResponseMessage(UPDATE_FAIL_CODE, UPDATE_FAIL_MESSAGE);
+            return new ResponseMessage(SynaxSugar.UPDATE_FAIL_CODE, SynaxSugar.UPDATE_FAIL_MESSAGE);
         }
     }
 
     public ResponseMessage deleteTodoItemById(int id) {
         if(todoItemRepository.exists(id)) {
             todoItemRepository.delete(id);
-            return new ResponseMessage(DELETE_SUCC_CODE, DELETE_SUCC_MESSAGE);
+            return new ResponseMessage(SynaxSugar.DELETE_SUCC_CODE, SynaxSugar.DELETE_SUCC_MESSAGE);
         } else {
-            return new ResponseMessage(DELETE_FAIL_CODE, DELETE_FAIL_MESSAGE);
+            return new ResponseMessage(SynaxSugar.DELETE_FAIL_CODE, SynaxSugar.DELETE_FAIL_MESSAGE);
         }
     }
 }
