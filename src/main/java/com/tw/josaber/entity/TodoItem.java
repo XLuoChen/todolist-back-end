@@ -53,4 +53,19 @@ public class TodoItem {
         this.timestamp = timestamp;
         return this;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        TodoItem todoItem = (TodoItem) o;
+
+        return id == todoItem.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return id;
+    }
 }
