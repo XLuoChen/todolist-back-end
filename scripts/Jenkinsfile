@@ -4,13 +4,15 @@ pipeline{
   stages{
 
     stage('Test') {
-      sh 'mvn test'
+      steps{
+        sh 'mvn test'
+      }
     }
 
     stage('Build'){
       steps{
-          sh 'cd /var/lib/jenkins/workspace/todolist-back-end'
-          sh 'mvn package'
+        sh 'cd /var/lib/jenkins/workspace/todolist-back-end'
+        sh 'mvn package'
       }
     }
 
