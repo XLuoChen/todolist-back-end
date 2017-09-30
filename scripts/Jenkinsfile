@@ -1,0 +1,23 @@
+pipeline{
+  agent any
+
+  stages{
+
+    stage('Test') {
+      mvn test
+    }
+
+    stage('Build'){
+      steps{
+          sh 'cd /var/lib/jenkins/workspace/todolist-back-end'
+          sh 'mvn package'
+      }
+    }
+
+    stage('Deploy'){
+      steps{
+        sh 'ansible-playbook /var/lib/jenkins/workspace/todolist-back-end/scripts/deploy.yml'
+      }
+    }
+  }
+}

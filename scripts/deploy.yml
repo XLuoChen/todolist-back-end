@@ -1,0 +1,40 @@
+---
+- hosts: default
+  become: true
+  tasks:
+    - copy:
+        src: /var/lib/jenkins/workspace/todolist-back-end/scripts/
+        dest: /tmp
+
+    - file:
+        path: /tmp/db_config.sh
+        mode: 0755
+
+    - file:
+        path: /tmp/start.sh
+        mode: 0755
+
+    - file:
+        path: /tmp/stop.sh
+        mode: 0755
+
+    - name: DB migration
+      shell: /tmp/db_config.sh
+
+    - name: stop project
+      shell: /tmp/stop.sh
+
+    - stat:
+        path: /tmp/leafer-1.5.3.RELEASE.jar
+      register: old_package
+
+    - name: delete old project package
+      command: rm /tmp/.jar
+      when: old_package.stat.exists
+
+    - copy:
+        src: /var/lib/jenkins/workspace/leafer/target/todo-list-api-1.0-SNAPSHOT.jar
+        dest: /tmp
+
+    - name: start project
+      shell: /tmp/start.sh
