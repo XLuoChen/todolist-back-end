@@ -1,5 +1,7 @@
 DROP DATABASE IF EXISTS `TodoList`;
 
+USE TodoList;
+
 CREATE TABLE `todo_item` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `text` varchar(140) DEFAULT NULL,
