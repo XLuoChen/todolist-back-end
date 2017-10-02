@@ -2,39 +2,43 @@
 - hosts: default
   become: true
   tasks:
+    - file:
+        path: /var/todolist-back-end
+        state: directory
+        mode: 0755
     - copy:
         src: /var/lib/jenkins/workspace/todolist-back-end/scripts/
-        dest: /tmp
+        dest: /var/todolist-back-end
 
     - file:
-        path: /tmp/db_config.sh
+        path: /var/todolist-back-end/db_config.sh
         mode: 0755
 
     - file:
-        path: /tmp/start.sh
+        path: /var/todolist-back-end/start.sh
         mode: 0755
 
     - file:
-        path: /tmp/stop.sh
+        path: /var/todolist-back-end/stop.sh
         mode: 0755
 
     - name: DB migration
-      shell: /tmp/db_config.sh
+      shell: /var/todolist-back-end/db_config.sh
 
     - name: stop project
-      shell: /tmp/stop.sh
+      shell: /var/todolist-back-end/stop.sh
 
     - stat:
-        path: /tmp/leafer-1.5.3.RELEASE.jar
+        path: /var/todolist-back-end/todo-list-api-1.0-SNAPSHOT.jar
       register: old_package
 
     - name: delete old project package
-      command: rm /tmp/.jar
+      command: rm /var/todolist-back-end/todo-list-api-1.0-SNAPSHOT.jar
       when: old_package.stat.exists
 
     - copy:
-        src: /var/lib/jenkins/workspace/leafer/target/todo-list-api-1.0-SNAPSHOT.jar
-        dest: /tmp
+        src: /var/lib/jenkins/workspace/todo-list-api/target/todo-list-api-1.0-SNAPSHOT.jar
+        dest: /var/todo-list-api
 
     - name: start project
-      shell: /tmp/start.sh
+      shell: /var/todo-list-api/start.sh

@@ -1,4 +1,5 @@
 DROP DATABASE IF EXISTS `TodoList`;
+CREATE DATABASE TodoList;
 
 USE TodoList;
 
