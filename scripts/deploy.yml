@@ -41,4 +41,4 @@
         dest: /var/todo-list-api
 
     - name: start project
-      shell: /var/todo-list-api/start.sh
+      shell: /var/todolist-back-end/start.sh
