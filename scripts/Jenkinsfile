@@ -18,7 +18,7 @@ pipeline{
 
     stage('Deploy'){
       steps{
-        sh 'ansible-playbook /var/lib/jenkins/workspace/todolist-back-end/scripts/deploy.yml'
+        sh 'ansible-playbook /var/lib/jenkins/workspace/todolist-back-end/scripts/deploy.yml --extra-vars="ansible_become_pass=remote"'
       }
     }
   }
