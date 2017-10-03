@@ -38,7 +38,7 @@
 
     - copy:
         src: /var/lib/jenkins/workspace/todolist-back-end/target/todo-list-api-1.0-SNAPSHOT.jar
-        dest: /var/todo-list-api
+        dest: /var/todolist-back-end
 
     - name: start project
       shell: /var/todolist-back-end/start.sh
