@@ -37,7 +37,7 @@
       when: old_package.stat.exists
 
     - copy:
-        src: /var/lib/jenkins/workspace/todo-list-api/target/todo-list-api-1.0-SNAPSHOT.jar
+        src: /var/lib/jenkins/workspace/todolist-back-end/target/todo-list-api-1.0-SNAPSHOT.jar
         dest: /var/todo-list-api
 
     - name: start project
