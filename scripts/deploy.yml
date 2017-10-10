@@ -49,7 +49,7 @@
 
     - name: add default hosts of mysql
       lineinfile:
-        src: /etc/hosts
+        dest: /etc/hosts
         regexp: ''
         state: present
         insertafter: EOF
