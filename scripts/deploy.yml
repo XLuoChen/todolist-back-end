@@ -47,9 +47,9 @@
         path: /var/todolist-back-end/check_mysql.sh
         mode: 0755
 
-    - name: add default hostss of mysql
+    - name: add default hosts of mysql
       lineinfile:
-        path: /etc/hosts
+        src: /etc/hosts
         regexp: ''
         state: present
         insertafter: EOF
