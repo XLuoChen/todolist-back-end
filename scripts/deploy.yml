@@ -32,7 +32,7 @@
         dest: /var/todolist-back-end
 
     - copy:
-        src: /var/lib/jenkins/workspace/todolist-back-end/my_supervisor.conf
+        src: /var/lib/jenkins/workspace/todolist-back-end/scripts/my_supervisor.conf
         dest: /etc/supervisor/conf.d
 
     - file:
