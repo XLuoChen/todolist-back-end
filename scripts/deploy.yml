@@ -14,34 +14,26 @@
         path: /var/todolist-back-end/db_config.sh
         mode: 0755
 
-    - file:
-        path: /var/todolist-back-end/start.sh
-        mode: 0755
-
-    - file:
-        path: /var/todolist-back-end/stop.sh
-        mode: 0755
-
     - name: DB migration
       shell: /var/todolist-back-end/db_config.sh
-
-    - name: stop project
-      shell: /var/todolist-back-end/stop.sh
 
     - stat:
         path: /var/todolist-back-end/todo-list-api-1.0-SNAPSHOT.jar
       register: old_package
 
     - name: delete old project package
-      command: rm /var/todolist-back-end/todo-list-api-1.0-SNAPSHOT.jar
+      file:
+        path: /var/todolist-back-end/todo-list-api-1.0-SNAPSHOT.jar
+        state: absent
       when: old_package.stat.exists
 
     - copy:
         src: /var/lib/jenkins/workspace/todolist-back-end/target/todo-list-api-1.0-SNAPSHOT.jar
         dest: /var/todolist-back-end
 
-    - name: start project
-      shell: /var/todolist-back-end/start.sh
+    - copy:
+        src: /var/lib/jenkins/workspace/todolist-back-end/my_supervisor.conf
+        dest: /etc/supervisor/conf.d
 
     - file:
         path: /var/todolist-back-end/check_mysql.sh
