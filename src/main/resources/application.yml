@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost/TodoList?useUnicode=yes&characterEncoding=utf8&&useSSL=false
+    url: jdbc:mysql://mysql_machine/TodoList?useUnicode=yes&characterEncoding=utf8&&useSSL=false
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
