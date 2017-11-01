@@ -11,14 +11,13 @@ pipeline{
 
     stage('Build'){
       steps{
-        sh 'cd /var/lib/jenkins/workspace/todolist-back-end'
-        sh 'mvn package'
+        sh '/var/lib/jenkins/workspace/todolist-back-end/scripts/publish.sh'
       }
     }
 
     stage('Deploy'){
       steps{
-        sh 'ansible-playbook /var/lib/jenkins/workspace/todolist-back-end/scripts/deploy.yml --extra-vars="ansible_become_pass=remote"'
+        sh 'ansible-playbook /var/lib/jenkins/workspace/todolist-back-end/scripts/deploy-with-docker.yml --extra-vars="ansible_become_pass=remote"'
       }
     }
   }

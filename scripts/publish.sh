@@ -9,3 +9,6 @@ docker build -t chengxiuluo/todolist-backend:latest .
 
 docker push chengxiuluo/todolist-backend:${today}
 docker push chengxiuluo/todolist-backend:latest
+
+#docker rmi chengxiuluo/todolist-backend:${today}
+#docker rmi chengxiuluo/todolist-backend:latest
