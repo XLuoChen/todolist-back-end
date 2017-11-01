@@ -6,7 +6,7 @@
 
     <groupId>com.tw.josaber</groupId>
     <artifactId>todo-list-api</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
