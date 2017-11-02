@@ -4,6 +4,8 @@ today=`date +%Y%m%d`
 
 mvn clean package
 
+cat ~/my_password.txt | docker login --username chengxiuluo --password-stdin
+
 sudo docker build -t chengxiuluo/todolist-backend:${today} .
 sudo docker build -t chengxiuluo/todolist-backend:latest .
 
