@@ -1,0 +1,19 @@
+version: '3'
+services:
+  todolist-mysql:
+    image: mysql:5.6
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=TodoList
+    volumes:
+      - .:/data
+    ports:
+      - "3306:3306"
+
+
+  todolist-api:
+    image: chengxiuluo/todolist-backend:latest
+    ports:
+      - "8080:8080"
+    links:
+      - todolist-mysql:mysql_machine

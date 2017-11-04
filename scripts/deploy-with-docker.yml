@@ -11,15 +11,7 @@
         src: /var/lib/jenkins/workspace/todolist-back-end/scripts/
         dest: /var/todolist-back-end
 
-#    - name: Remove image
-#      docker_image:
-#        state: absent
-#        name: chengxiuluo/todolist-backend
-#        tag: latest
-#
-#    - name: pull an image
-#      docker_image:
-#        name: chengxiuluo/todolist-backend:latest
-
-    - name: run container
-      shell: /var/todolist-back-end/start.sh
+    - name: start all containers
+      shell: |
+        cd /var/todolist-back-end
+        docker-compose up -d
