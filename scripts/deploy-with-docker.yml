@@ -12,6 +12,4 @@
         dest: /var/todolist-back-end
 
     - name: start all containers
-      shell: |
-        cd /var/todolist-back-end
-        docker-compose up -d
+      command: cd /var/todolist-back-end && docker-compose up -d
