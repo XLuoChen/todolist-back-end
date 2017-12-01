@@ -6,3 +6,8 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+server:
+  context-path: /api
+logging:
+  level:
+    org.springframework.web: DEBUG
